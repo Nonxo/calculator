@@ -30,7 +30,7 @@ export default function calculate(obj, buttonName) {
       if (obj.next) {
         return { next: obj.next + buttonName };
       }
-      return { next: buttonName };
+      return { next: buttonName};
     }
     // If there is no operation, update next and clear the value
     if (obj.next) {
@@ -64,6 +64,15 @@ export default function calculate(obj, buttonName) {
           .toString(),
       };
     }
+
+    if (obj.total) {
+      return {
+        next: Big(obj.total)
+          .div(Big("100"))
+          .toString(),
+      };
+    }
+
     return {};
   }
 

@@ -155,6 +155,30 @@ describe("calculate", function() {
     total: "0.04",
   });
 
+  //test that percentage sign works after addition or subtraction or multiplication or division
+  test(["5", "+", "7", "=", "%"],  {
+    next: "0.12",
+    total: "12"
+  });
+
+  //test that percentage sign works after subtraction
+  test(["5", "-", "7", "=", "%"],  {
+    next: "-0.02",
+    total: "-2"
+  });
+
+  //test that percentage sign works after multiplication
+  test(["5", "x", "7", "=", "%"], {
+    next: "0.35",
+    total: "35"
+  });
+
+  //test that percentage sign works after division
+  test(["5", "÷", "7", "=", "%"],{
+    next: "0.00714285714285714286",
+    total: "0.71428571428571428571"
+  })
+
   //Test that pressing the multiplication or division sign multiple times should not affect the current computation
   test(["2", "x", "x"], {
     total: "2",
